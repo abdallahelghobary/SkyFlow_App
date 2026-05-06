@@ -1,4 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
 
 import 'package:flutter/material.dart';
 
@@ -23,7 +22,7 @@ class SearchView extends StatelessWidget {
           child: TextField(
             // style: TextStyle(height: 3),
             onSubmitted: (value) {
-              print(value);
+            //  print(value);
             },
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
