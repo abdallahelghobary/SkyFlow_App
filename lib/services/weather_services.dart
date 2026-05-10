@@ -6,5 +6,4 @@ class WeatherServices
    return "Sunny";
  }  
 
-
 }

@@ -8,7 +8,6 @@ void main (){
 
 class WeatherApp extends StatelessWidget
 {
- 
  const WeatherApp({super.key});
 
 @override 
