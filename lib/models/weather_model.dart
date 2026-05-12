@@ -16,7 +16,7 @@ class WeatherModel {
     required this.minTemp,
   });
 
-  factory WeatherModel.fromjson(json) {
+  factory WeatherModel.fromjson( Map<String, dynamic> json) {
     return WeatherModel(
       image: json['current']['condition']['icon'] ,
       cityName: json["location"]['name'],
