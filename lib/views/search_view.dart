@@ -26,11 +26,10 @@ class SearchView extends StatelessWidget {
             // style: TextStyle(height: 3),
             onSubmitted: (value) async {
               //  print(value);
-              WeatherModel weatherModel = await WeatherServices(
+              weatherModel = await WeatherServices(
                 Dio(),
               ).getCurrentWeather(cityName: value);
-
-              log(weatherModel.cityName);
+              Navigator.pop(context);
             },
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
@@ -64,3 +63,16 @@ class SearchView extends StatelessWidget {
     );
   }
 }
+
+WeatherModel? weatherModel;
+
+
+
+
+
+
+// TODO State
+// ? No Weater State 
+// ? Exit Weather 200
+// ! Exit Exception 
+
