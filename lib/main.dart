@@ -1,23 +1,24 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit.dart';
 import 'package:weather_app/views/home_view.dart';
 
-void main (){
-  runApp( WeatherApp());
+
+void main() {
+  runApp(WeatherApp());
 }
 
-class WeatherApp extends StatelessWidget
-{
- const WeatherApp({super.key});
+class WeatherApp extends StatelessWidget {
+  const WeatherApp({super.key});
 
-@override 
-Widget build (BuildContext context)
-{
-
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-
-    home : HomeView(),
-  );
-}
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => GetWeatherCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+         home: HomeView(),
+         ),
+    );
+  }
 }
