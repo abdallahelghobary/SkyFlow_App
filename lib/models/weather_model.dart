@@ -18,10 +18,10 @@ class WeatherModel {
 
   factory WeatherModel.fromjson( Map<String, dynamic> json) {
     return WeatherModel(
-      image: json['current']['condition']['icon'] ,
+      image: json['forecast']['forecastday'][0]['day']['condition']['icon'] ,
       cityName: json["location"]['name'],
       weatherCondition: json['forecast']['forecastday'][0]['day']['condition']['text'],
-      temperature: json["current"]["temp_c"],
+      temperature: json['forecast']['forecastday'][0]["day"]["avgtemp_c"],
       date: json["current"]["last_updated"],
       maxTemp: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
       minTemp: json["forecast"]["forecastday"][0]["day"]["mintemp_c"],
