@@ -43,7 +43,7 @@ class HomeView extends StatelessWidget {
             return NoWeatherBody();
           } else if (state is WeatherSuccesState) {
           
-            return WeatherInfoBody(weatherModel: state.weatherModel,);
+            return WeatherInfoBody( );
           } else {
             return Text('Error YA Abdullah Error Samia');
           }
