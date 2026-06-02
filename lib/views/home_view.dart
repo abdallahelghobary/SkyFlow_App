@@ -14,10 +14,8 @@ class HomeView extends StatelessWidget {
     // weatherModel.cityName;
 
     return Scaffold(
-      backgroundColor: BlocProvider.of<GetWeatherCubit>(context).getThemeColor(),
       appBar: AppBar(
-        backgroundColor: BlocProvider.of<GetWeatherCubit>(context).getThemeColor(),
-        elevation: 8,
+        backgroundColor: Colors.blue,
         title: Text(
           'Weather App ',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
