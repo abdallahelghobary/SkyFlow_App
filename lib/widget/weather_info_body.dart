@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit.dart';
+import 'package:weather_app/models/weather_model.dart';
 
 class WeatherInfoBody extends StatelessWidget {
   const WeatherInfoBody({super.key});
   @override
   Widget build(BuildContext context) {
-    var weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
+    WeatherModel weatherModel = BlocProvider.of<GetWeatherCubit>(
+      context,
+    ).weatherModel!;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
 
       children: [
         Center(child: CustamText()),
-        Center(child: Text('Updated at ${weatherModel.date.hour}:${weatherModel.date.minute.toString().padLeft(2,'0')}', style: TextStyle(fontSize: 20))),
+        Center(
+          child: Text(
+            'Updated at ${weatherModel.date.hour}:${weatherModel.date.minute.toString().padLeft(2, '0')}',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,8 +64,9 @@ class CustamText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final weatherModel = BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Text(
-      BlocProvider.of<GetWeatherCubit>(context).weatherModel.cityName,
+      weatherModel?.cityName ?? '',
       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     );
   }
