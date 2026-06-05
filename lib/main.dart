@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit.dart';
 import 'package:weather_app/cubits/get_weather_state.dart';
@@ -15,37 +15,25 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetWeatherCubit(),
-      child: const CustomMaterialColor(),
-    );
-  }
-}
+      child: Builder(
+        builder: (context) => BlocBuilder<GetWeatherCubit, WeatherState>(
+          builder: (context, state) {
+            return MaterialApp(
+              theme: ThemeData(
+               useMaterial3: false,
+                primarySwatch: getThemeColor(
+                  BlocProvider.of<GetWeatherCubit>(
+                    context,
+                  ).weatherModel?.weatherCondition,
+                ),
+              ),
 
-class CustomMaterialColor extends StatelessWidget {
-  const CustomMaterialColor({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Rebuild MaterialApp theme when the GetWeatherCubit state changes
-    return BlocBuilder<GetWeatherCubit, WeatherState>(
-      builder: (context, state) {
-        final condition = BlocProvider.of<GetWeatherCubit>(
-          context,
-        ).weatherModel?.weatherCondition;
-        final primary = getThemeColor(condition);
-
-        return MaterialApp(
-          theme: ThemeData(
-            primarySwatch: primary,
-            colorScheme: ColorScheme.fromSwatch(primarySwatch: primary),
-            appBarTheme: AppBarTheme(
-              backgroundColor: primary,
-              foregroundColor: Colors.white,
-            ),
-          ),
-          debugShowCheckedModeBanner: false,
-          home: HomeView(),
-        );
-      },
+              debugShowCheckedModeBanner: false,
+              home: HomeView(),
+            );
+          },
+        ),
+      ),
     );
   }
 }
@@ -54,21 +42,19 @@ MaterialColor getThemeColor(String? condition) {
   if (condition == null) {
     return Colors.blue;
   }
-  switch (condition.toLowerCase()) {
-    case 'sunny':
-    case 'clear':
+  switch (condition) {
+    case 'Sunny':
+    case 'Clear':
       return Colors.orange;
-
-    case 'partly cloudy':
-    case 'cloudy':
-    case 'overcast':
+    case 'Partly cloudy':
+    case 'Cloudy':
+    case 'Overcast':
+    case 'Patchy rain nearby':
       return Colors.blueGrey;
-
     case 'mist':
     case 'fog':
-    case 'freezing fog':
+    case 'Freezing fog':
       return Colors.grey;
-
     default:
       return Colors.blue;
   }

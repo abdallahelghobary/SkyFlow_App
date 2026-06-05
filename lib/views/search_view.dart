@@ -9,11 +9,11 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+       // iconTheme: IconThemeData(color: Colors.white),
       //  backgroundColor: Colors.orange,
         title: Text(
           'Search a City',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle( fontWeight: FontWeight.bold),
         ),
       ),
 
@@ -66,7 +66,7 @@ class SearchView extends StatelessWidget {
 
 
 
-// TODO State
+// TOD State
 // ? No Weater State 
 // ? Exit Weather 200
 // ! Exit Exception 

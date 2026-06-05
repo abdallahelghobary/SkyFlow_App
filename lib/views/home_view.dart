@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Weather App ',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle( fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
@@ -31,7 +31,6 @@ class HomeView extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.search),
-            color: Colors.white,
             iconSize: 30,
           ),
         ],

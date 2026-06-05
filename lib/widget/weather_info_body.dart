@@ -72,6 +72,4 @@ class CustamText extends StatelessWidget {
   }
 }
 
-DateTime stringToDateTime(String value) {
-  return DateTime.parse(value);
-}
+
