@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Weather App ',
+          'SkyFlow App ',
           style: TextStyle( fontWeight: FontWeight.bold),
         ),
         actions: [

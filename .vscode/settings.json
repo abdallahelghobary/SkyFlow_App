@@ -1,6 +1,6 @@
 {
     "window.autoDetectColorScheme": false,
-    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "workbench.preferredDarkColorTheme": "Dark Modern",
     "workbench.preferredHighContrastColorTheme": "Default High Contrast",
-    "workbench.preferredLightColorTheme": "Default Light Modern"
+    "workbench.preferredLightColorTheme": "Light Modern"
 }
